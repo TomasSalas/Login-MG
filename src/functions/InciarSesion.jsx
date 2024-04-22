@@ -33,8 +33,9 @@ export const IniciarSesion = async (data, navigate) => {
 				return navigate('/gestion-usuario');
 			} else if (tokenDecode.role == '6' || tokenDecode.role == '8' || tokenDecode.role == '9') {
 				const token = localStorage.getItem('token');
-				document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
-				return (window.location.href = 'https://portal-evaluador.vercel.app/');
+				// document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
+				document.cookie = `token=${token};`;
+				return (window.location.href = `https://portal-evaluador.vercel.app/`);
 				// return (window.location.href = 'http://localhost:5174/');
 			}
 
