@@ -22,6 +22,7 @@
     "@mui/styled-engine-sc": "^6.0.0-alpha.12",
     "axios": "^1.6.8",
     "framer-motion": "^10.18.0",
+    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.3",

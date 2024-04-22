@@ -1,4 +1,5 @@
 import { decodeToken } from 'react-jwt';
+import { ComprimirToken } from '../helpers/ComprimirToken';
 export const IniciarSesion = async (data, navigate) => {
 	const { rut, contrasena } = data;
 
@@ -35,6 +36,8 @@ export const IniciarSesion = async (data, navigate) => {
 				const token = localStorage.getItem('token');
 				// document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
 				document.cookie = `token=${token};`;
+				const tokenComprimido = ComprimirToken(token);
+				console.log(tokenComprimido);
 				return (window.location.href = `https://portal-evaluador.vercel.app/`);
 				// return (window.location.href = 'http://localhost:5174/');
 			}
