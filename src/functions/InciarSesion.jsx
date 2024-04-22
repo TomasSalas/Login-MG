@@ -37,7 +37,7 @@ export const IniciarSesion = async (data, navigate) => {
 				// document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
 				document.cookie = `token=${token};`;
 				const tokenComprimido = ComprimirToken(token);
-				console.log(tokenComprimido);
+				console.log(tokenComprimido.toString());
 				return (window.location.href = `https://portal-evaluador.vercel.app/`);
 				// return (window.location.href = 'http://localhost:5174/');
 			}
