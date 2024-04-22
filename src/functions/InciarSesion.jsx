@@ -34,7 +34,7 @@ export const IniciarSesion = async (data, navigate) => {
 			} else if (tokenDecode.role == '6' || tokenDecode.role == '8' || tokenDecode.role == '9') {
 				const token = localStorage.getItem('token');
 				document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
-				return (window.location.href = 'https://app-prod-micro-portalevaluadores-front.azurewebsites.net/');
+				return (window.location.href = 'https://portal-evaluador.vercel.app/');
 				// return (window.location.href = 'http://localhost:5174/');
 			}
 
