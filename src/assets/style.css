@@ -1,0 +1,23 @@
+body{
+  margin: 0
+}
+
+.div-general {
+  height: 100vh;
+}
+@media (max-width: 1200px) {
+  .Container-Main {
+    flex-direction: column;
+  }
+}
+
+.hovericon.active {
+  color: #ed6c02;
+  transition: color 0.5s ease;
+}
+
+.ContainerProximamente{
+  background-image: url("./confetti.jpg");
+  background-size: cover;
+  background-repeat: 'no-repeat';
+}
