@@ -1,5 +1,6 @@
 import { decodeToken } from 'react-jwt';
-import { ComprimirToken } from '../helpers/ComprimirToken';
+import { generateRandomString } from '../helpers/generateRandomString';
+import { EnviarToken } from './EnviarToken';
 export const IniciarSesion = async (data, navigate) => {
 	const { rut, contrasena } = data;
 
@@ -34,12 +35,18 @@ export const IniciarSesion = async (data, navigate) => {
 				return navigate('/gestion-usuario');
 			} else if (tokenDecode.role == '6' || tokenDecode.role == '8' || tokenDecode.role == '9') {
 				const token = localStorage.getItem('token');
-				// document.cookie = `token=${token}; path=/; SameSite=None; Secure`;
-				document.cookie = `token=${token};`;
-				const tokenComprimido = ComprimirToken(token);
-				console.log(tokenComprimido.toString());
-				return (window.location.href = `https://portal-evaluador.vercel.app/?token=${tokenComprimido}`);
-				// return (window.location.href = 'http://localhost:5174/');
+				const id = generateRandomString();
+
+				const { error, data } = EnviarToken(token, id);
+
+				if (!error) {
+					window.location.href = 'https://portal-evaluador.vercel.app/?id' + id;
+				} else {
+					return {
+						error: true,
+						result: data,
+					};
+				}
 			}
 
 			return {
