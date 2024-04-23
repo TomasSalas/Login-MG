@@ -37,10 +37,10 @@ export const IniciarSesion = async (data, navigate) => {
 				const token = localStorage.getItem('token');
 				const id = generateRandomString();
 
-				const { error, data } = EnviarToken(token, id);
-
+				const { error, data } = await EnviarToken(token, id);
+				console.log(error);
 				if (!error) {
-					window.location.href = 'https://portal-evaluador.vercel.app/?id' + id;
+					window.location.href = 'https://portal-evaluador.vercel.app/?id=' + id;
 				} else {
 					return {
 						error: true,

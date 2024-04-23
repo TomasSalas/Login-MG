@@ -1,10 +1,10 @@
 export const EnviarToken = async (token, id) => {
 	try {
-		const url = '';
+		const url = 'https://app-prod-eastus-portalevaluador-api.azurewebsites.net/api/Candidato/RegistrarVerifToken';
 
 		const parametros = {
-			idUnico: id,
-			token,
+			randomid: id,
+			accessToken: token,
 		};
 
 		const res = await fetch(url, {
